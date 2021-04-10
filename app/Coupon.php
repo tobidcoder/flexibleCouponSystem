@@ -48,7 +48,7 @@ class Coupon extends Model
      * @var array
      */
     public static $rules = [
-        'name' => 'required',
+        'name' => 'required|unique:coupons',
         'min_price' => 'nullable',
         'min_items' => 'nullable',
         'discount_type' => 'nullable',

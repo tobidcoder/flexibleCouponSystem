@@ -15,7 +15,7 @@ class CreateCouponsTable extends Migration
     {
         Schema::create('coupons', function (Blueprint $table) {
             $table->id();
-            $table->string('name',100);
+            $table->string('name',100)->unique();
             $table->decimal('min_price',20,2)->default(0);
             $table->bigInteger('min_items')->default(0);
             $table->enum('discount_type',['fixed','percentage','both','greater']);
