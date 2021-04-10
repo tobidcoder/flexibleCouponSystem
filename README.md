@@ -1,3 +1,37 @@
+Run: git clone https://github.com/tobidcoder/flexibleCouponSystem.git
+
+Then: cd flexibleCouponSystem
+
+Then : composer install
+
+Then: npm install
+
+Then: Create database flexiblecoupon
+
+cp .env.example .env
+
+Change database name in .env to flexiblecoupon
+
+Run
+
+php artisan key:generate
+
+php artisan migrate
+php artisan db:seed
+
+Then
+
+npm run dev
+
+Finally Run
+
+php artisan serve
+
+hhtp://localhost:8000
+
+Happy testing.
+
+
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
 <p align="center">
