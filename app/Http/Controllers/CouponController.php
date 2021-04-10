@@ -29,7 +29,8 @@ class CouponController extends Controller
             return $this->sendError($validate->errors());
         }
 
-        $coupon = Coupon::where('name','coupon_code')->first();
+        $coupon = Coupon::where('name',$request->coupon_code)->first();
+
 
         if(empty($coupon)){
             return $this->sendError('Coupon code does not exit');

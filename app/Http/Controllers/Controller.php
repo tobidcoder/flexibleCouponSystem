@@ -8,26 +8,39 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Response;
 
-
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function sendResponse($result, $message)
+    public function sendResponse($data, $message)
     {
-        return Response::json(ResponseUtil::makeResponse($message, $result));
+        $response = [
+            'success' => true,
+            'data'    => $data,
+            'message' => $message,
+        ];
+
+
+        return response()->json($response, 200);
     }
+
 
     public function sendError($error, $code = 404)
     {
-        return Response::json(ResponseUtil::makeError($error), $code);
+        $response = [
+            'success' => false,
+            'message' => $error,
+        ];
+
+
+        return response()->json($response, $code);
     }
 
     public function sendSuccess($message)
     {
         return Response::json([
             'success' => true,
-            'message' => $message
+            'Response_message' => $message
         ], 200);
     }
 
